@@ -1,4 +1,3 @@
-```markdown
 # GoveAssist
 
 GoveAssist is an innovative platform designed to streamline access to various government services and benefits. Our mission is to simplify the process for citizens, providing a user-friendly interface and comprehensive features to ensure seamless interaction with government programs.
@@ -41,7 +40,6 @@ Ensure you have the following installed:
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/your-username/goveassist.git
-   ```
 2. **Navigate to the Project Directory:**
    ```bash
    cd goveassist
