@@ -44,8 +44,8 @@ export const loginAdmin = async (req, res) => {
     const isMatch = await bcrypt.compare(password, admin.password);
     if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
 
-    // Generate JWT token
-    const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    // Generate permanent JWT token (no expiration)
+    const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET);
 
     // Send token in response
     res.json({ token });

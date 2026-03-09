@@ -44,10 +44,27 @@ export const loginCitizen = async (req, res) => {
     const isMatch = await bcrypt.compare(password, citizen.password);
     if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
 
-    // Create JWT token
-    const token = jwt.sign({ id: citizen._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    // Create permanent JWT token (no expiration)
+    const token = jwt.sign({ id: citizen._id }, process.env.JWT_SECRET);
+
     res.json({ token });
   } catch (error) {
     res.status(500).json({ error: "Server Error" });
+  }
+};
+
+// Get the authenticated citizen's details
+export const getCitizenDetails = async (req, res) => {
+  try {
+    const citizen = await Citizen.findById(req.user.id); // Assuming the citizen's info is stored in req.user
+    if (!citizen) {
+      return res.status(404).json({ error: "Citizen not found" });
+    }
+    res.json({
+      name: citizen.name,
+      email: citizen.email,
+    }); // Send the citizen details (name, email, etc.)
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
   }
 };
