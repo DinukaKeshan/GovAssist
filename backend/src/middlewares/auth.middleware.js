@@ -1,26 +1,30 @@
+// middlewares/auth.middleware.js
 import jwt from "jsonwebtoken";
+import Citizen from "../models/Citizen.js"; // Import Citizen model to fetch the citizen details
 
-const authMiddleware = (req, res, next) => {
-  // Check the Authorization header for the Bearer token
-  const token = req.header("Authorization")?.replace("Bearer ", ""); // Extract the token from 'Bearer <token>'
+const authMiddleware = async (req, res, next) => {
+  // Extract token from the Authorization header (Bearer <token>)
+  const token = req.header("Authorization")?.replace("Bearer ", "");
 
-  // If there's no token, deny access
   if (!token) {
     return res.status(401).json({ error: "No token, authorization denied" });
   }
 
   try {
-    // Verify the token and decode it
+    // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // Attach the decoded admin ID to the request object
-    req.admin = decoded.id;
+    // Find the citizen using the decoded ID from the token
+    const citizen = await Citizen.findById(decoded.id);
+    if (!citizen) {
+      return res.status(404).json({ error: "Citizen not found" });
+    }
 
-    // Proceed to the next middleware or route handler
-    next();
+    // Attach citizen to the request object
+    req.user = citizen; // Make sure you're using req.user, not req.admin
+    next(); // Proceed to the next middleware or route handler
   } catch (error) {
-    // Token verification failed
-    console.error("JWT Error:", error.message);  // Log the error for debugging
+    console.error("JWT Error:", error.message); // Log the error for debugging
     res.status(400).json({ error: "Token is not valid" });
   }
 };

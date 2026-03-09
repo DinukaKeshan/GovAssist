@@ -7,6 +7,7 @@ import citizenRoutes from "./routes/citizen.routes.js";
 import ministerRoutes from "./routes/minister.routes.js";  // Import minister routes
 import agentRoutes from "./routes/agent.routes.js";  // Import agent routes
 import errorHandler from "./middlewares/error.middleware.js"; // Global error handler
+import complaintRoutes from "./routes/complaint.routes.js";
 
 dotenv.config();
 
@@ -39,6 +40,8 @@ connectDB();
 
 // Error handling middleware (should be the last middleware)
 app.use(errorHandler);
+
+app.use("/api/citizen/complaints", complaintRoutes);
 
 // Start the server on the specified PORT, fallback to 5000 if not provided
 const PORT = process.env.PORT || 5000;
