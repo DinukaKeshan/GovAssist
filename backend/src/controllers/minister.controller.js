@@ -59,3 +59,16 @@ export const loginMinister = async (req, res) => {
     res.status(500).json({ error: "Server Error" });
   }
 };
+
+// Fetch Minister Profile
+export const getMinisterProfile = async (req, res) => {
+  try {
+    const minister = await Minister.findById(req.minister.id).populate('department');
+    if (!minister) {
+      return res.status(404).json({ error: "Minister not found" });
+    }
+    res.json(minister);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch minister profile" });
+  }
+};

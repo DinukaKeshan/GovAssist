@@ -18,9 +18,6 @@ router.post("/login", loginAdmin);
 // Route to register a minister (protected route)
 router.post("/register-minister", authMiddleware, registerMinister); // Admin-only route to register ministers
 
-// Route to login a minister
-router.post("/login-minister", loginMinister); // Route for ministers to log in
-
 // Route to fetch all departments (protected route)
 router.get("/departments", authMiddleware, getDepartments); // Fetch departments for the dropdown
 

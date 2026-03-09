@@ -11,7 +11,12 @@ import HomePage from './pages/citizen/HomePage';
 import CitizenLoginPage from './pages/citizen/CitizenLoginPage';  
 import CitizenRegisterPage from './pages/citizen/CitizenRegisterPage';  
 import CitizenDashboard from './pages/citizen/CitizenDashboard';  
+import MinisterLoginPage from './pages/minister/MinisterLoginPage';  // Import Minister Login page
+import MinisterDashboard from './pages/minister/MinisterDashboard';  // Import Minister Dashboard page
+import AgentLoginPage from './pages/agent/AgentLoginPage';  // Import Agent Login page
+import AgentDashboard from './pages/agent/AgentDashboard';  // Import Agent Dashboard page
 import Navbar from './components/Navbar'; 
+import AdminHomePage from './pages/admin/AdminHomePage';  // Import Admin Home page
 
 function App() {
   return (
@@ -30,11 +35,22 @@ function App() {
         <Route path="/admin/user-management" element={<UserManagementPage />} /> {/* User Management page */}
         <Route path="/admin/create-minister" element={<CreateMinisterPage />} /> {/* Create Minister page */}
         <Route path="/admin/create-agent" element={<CreateAgentPage />} /> {/* Create Agent page */}
+        
+        {/* Admin Home Page */}
+        <Route path="/admin/home" element={<AdminHomePage />} />
 
         {/* Citizen Routes */}
         <Route path="/citizen/login" element={<CitizenLoginPage />} />
         <Route path="/citizen/register" element={<CitizenRegisterPage />} />
         <Route path="/citizen/dashboard" element={<CitizenDashboard />} />
+
+        {/* Minister Routes */}
+        <Route path="/minister/login" element={<MinisterLoginPage />} />  {/* Minister login page */}
+        <Route path="/minister/dashboard" element={<MinisterDashboard />} />  {/* Minister dashboard page */}
+
+        {/* Agent Routes */}
+        <Route path="/agent/login" element={<AgentLoginPage />} />  {/* Agent login page */}
+        <Route path="/agent/dashboard" element={<AgentDashboard />} />  {/* Agent dashboard page */}
       </Routes>
     </div>
   );
