@@ -1,9 +1,9 @@
 // middlewares/auth.middleware.js
 import jwt from "jsonwebtoken";
-import Citizen from "../models/Citizen.js"; // Import Citizen model to fetch the citizen details
+import Citizen from "../models/Citizen.js";
+import Admin from "../models/Admin.js";
 
 const authMiddleware = async (req, res, next) => {
-  // Extract token from the Authorization header (Bearer <token>)
   const token = req.header("Authorization")?.replace("Bearer ", "");
 
   if (!token) {
@@ -11,20 +11,26 @@ const authMiddleware = async (req, res, next) => {
   }
 
   try {
-    // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // Find the citizen using the decoded ID from the token
-    const citizen = await Citizen.findById(decoded.id);
-    if (!citizen) {
-      return res.status(404).json({ error: "Citizen not found" });
+    // Check Admin first, then Citizen
+    let user = await Admin.findById(decoded.id);
+    if (user) {
+      req.user = user;
+      req.userRole = "admin";
+      return next();
     }
 
-    // Attach citizen to the request object
-    req.user = citizen; // Make sure you're using req.user, not req.admin
-    next(); // Proceed to the next middleware or route handler
+    user = await Citizen.findById(decoded.id);
+    if (user) {
+      req.user = user;
+      req.userRole = "citizen";
+      return next();
+    }
+
+    return res.status(404).json({ error: "User not found" });
   } catch (error) {
-    console.error("JWT Error:", error.message); // Log the error for debugging
+    console.error("JWT Error:", error.message);
     res.status(400).json({ error: "Token is not valid" });
   }
 };
