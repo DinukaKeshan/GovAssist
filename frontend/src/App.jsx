@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import CitizenLoginPage from './pages/citizen/CitizenLoginPage';
-import CitizenRegisterPage from './pages/citizen/CitizenRegisterPage';
-import CitizenDashboard from './pages/citizen/CitizenDashboard'; 
-import HomePage from './pages/citizen/HomePage';
+import AdminLoginPage from './pages/admin/AdminLoginPage';
+import AdminRegisterPage from './pages/admin/AdminRegisterPage';
+import AdminDashboard from './pages/admin/AdminDashboard'; // Import Admin Dashboard component
+import HomePage from './pages/citizen/HomePage';  // Import HomePage
 import Navbar from './components/Navbar'; 
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/citizen/login" element={<CitizenLoginPage />} />
-        <Route path="/citizen/register" element={<CitizenRegisterPage />} />
-        <Route path="/citizen/dashboard" element={<CitizenDashboard />} />
+        <Route path="/" element={<HomePage />} /> {/* Home page route */}
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin/register" element={<AdminRegisterPage />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </div>
   );
