@@ -1,4 +1,4 @@
-import Department from "../models/Department.js";
+import Department from "../models/Department.js"; // Import Department model
 
 // Create a new Department
 export const createDepartment = async (req, res) => {
@@ -22,7 +22,18 @@ export const createDepartment = async (req, res) => {
 
     res.status(201).json({ message: "Department created successfully", newDepartment });
   } catch (error) {
-    console.error("Department Creation Error:", error.message);  // Log the error for debugging
+    console.error("Department Creation Error:", error.message);
     res.status(500).json({ error: "Server Error" });
+  }
+};
+
+// Get all Departments
+export const getDepartments = async (req, res) => {
+  try {
+    const departments = await Department.find(); // Fetch all departments
+    res.json(departments); // Return the departments
+  } catch (error) {
+    console.error("Error fetching departments:", error.message);
+    res.status(500).json({ error: "Failed to fetch departments" });
   }
 };

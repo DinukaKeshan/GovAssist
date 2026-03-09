@@ -44,8 +44,9 @@ export const loginCitizen = async (req, res) => {
     const isMatch = await bcrypt.compare(password, citizen.password);
     if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
 
-    // Create JWT token
-    const token = jwt.sign({ id: citizen._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    // Create permanent JWT token (no expiration)
+    const token = jwt.sign({ id: citizen._id }, process.env.JWT_SECRET);
+
     res.json({ token });
   } catch (error) {
     res.status(500).json({ error: "Server Error" });

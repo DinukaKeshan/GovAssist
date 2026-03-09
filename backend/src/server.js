@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import adminRoutes from "./routes/admin.routes.js"; 
 import citizenRoutes from "./routes/citizen.routes.js"; 
 import ministerRoutes from "./routes/minister.routes.js";  // Import minister routes
+import agentRoutes from "./routes/agent.routes.js";  // Import agent routes
 import errorHandler from "./middlewares/error.middleware.js"; // Global error handler
 
 dotenv.config();
@@ -29,6 +30,9 @@ app.use("/api/citizen", citizenRoutes);
 
 // Route for handling minister-related routes (separate minister route)
 app.use("/api/minister", ministerRoutes); // Register the minister routes here
+
+// Route for handling agent-related routes
+app.use("/api/agent", agentRoutes); // Register the agent routes here
 
 // Connect to the database (MongoDB in this case)
 connectDB();
