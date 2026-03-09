@@ -1,14 +1,21 @@
-// server.js
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors"; // Import cors package
 import connectDB from "./config/db.js";
-import adminRoutes from "./routes/admin.routes.js"; // Import admin routes
-import errorHandler from "./middlewares/error.middleware.js"; // Import error handler
-import citizenRoutes from "./routes/citizen.routes.js"; // Import citizen routes
+import adminRoutes from "./routes/admin.routes.js"; 
+import citizenRoutes from "./routes/citizen.routes.js"; 
+import errorHandler from "./middlewares/error.middleware.js"; 
 
 dotenv.config();
 
 const app = express();
+
+// Enable CORS for all origins or specify allowed origins
+app.use(cors({
+  origin: "http://localhost:5173", // Allow requests from your frontend (React app)
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
+  credentials: true, // Allow credentials (cookies, etc.)
+}));
 
 // Middleware
 app.use(express.json());
