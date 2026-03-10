@@ -13,16 +13,14 @@ const AgentLoginPage = () => {
     e.preventDefault();
 
     try {
-      // Send a POST request to login the agent
       const response = await axios.post('http://localhost:5000/api/admin/login-agent', {
         email,
         password,
       });
 
-      // Save the token to localStorage
       localStorage.setItem('token', response.data.token);
-
-      // Redirect to the Agent Dashboard
+      localStorage.setItem('role', 'agent');
+      window.dispatchEvent(new Event("authChange"));       
       navigate('/agent/dashboard');
     } catch (err) {
       setError('Invalid credentials');

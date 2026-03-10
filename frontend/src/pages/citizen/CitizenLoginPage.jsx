@@ -16,7 +16,9 @@ const CitizenLoginPage = () => {
         password,
       });
       localStorage.setItem('token', response.data.token);
-      navigate('/citizen/dashboard'); // Redirect to citizen dashboard
+      localStorage.setItem('role', 'citizen');
+      window.dispatchEvent(new Event("authChange")); // 👈 add this
+      navigate('/citizen/dashboard');
     } catch (err) {
       setError('Invalid credentials');
     }

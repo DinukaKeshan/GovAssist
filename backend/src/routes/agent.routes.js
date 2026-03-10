@@ -1,11 +1,13 @@
 import express from "express";
-import { registerAgent, loginAgent } from "../controllers/agent.controller.js"; // Import agent controller functions
-import authMiddleware from "../middlewares/auth.middleware.js"; // JWT authentication middleware
+import { registerAgent, loginAgent } from "../controllers/agent.controller.js";
+import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
+router.post("/login-agent", loginAgent);
 
-// Route to login an agent
-router.post("/login-agent", loginAgent);  // Route for agents to log in
+router.get("/profile", authMiddleware, (req, res) => { // 👈 add this
+  res.json(req.user);
+});
 
 export default router;
