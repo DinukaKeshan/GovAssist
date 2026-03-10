@@ -1,48 +1,37 @@
+// backend/src/server.js
 import express from "express";
 import dotenv from "dotenv";
-import cors from "cors"; // Import cors package for cross-origin resource sharing
+import cors from "cors";
 import connectDB from "./config/db.js";
-import adminRoutes from "./routes/admin.routes.js"; 
-import citizenRoutes from "./routes/citizen.routes.js"; 
-import ministerRoutes from "./routes/minister.routes.js";  // Import minister routes
-import agentRoutes from "./routes/agent.routes.js";  // Import agent routes
-import errorHandler from "./middlewares/error.middleware.js"; // Global error handler
-import complaintRoutes from "./routes/complaint.routes.js";
+import adminRoutes from "./routes/admin.routes.js";
+import citizenRoutes from "./routes/citizen.routes.js";
+import ministerRoutes from "./routes/minister.routes.js";
+import agentRoutes from "./routes/agent.routes.js";
+import errorHandler from "./middlewares/error.middleware.js";
+// NOTE: complaintRoutes are NOT imported here — they are already nested
+// inside citizenRoutes via: router.use("/complaints", complaintRoutes)
+// Mounting them again here caused duplicate route handling — removed.
 
 dotenv.config();
 
 const app = express();
 
-// Enable CORS with configuration to allow requests from specific origins (e.g., React app running on a different port)
 app.use(cors({
-  origin: "http://localhost:5173", // Replace with your frontend URL if different
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
-  credentials: true, // Allow credentials (cookies, etc.) to be sent
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
 }));
 
-// Middleware to parse JSON bodies
 app.use(express.json());
 
-// Route for handling admin-related routes
 app.use("/api/admin", adminRoutes);
+app.use("/api/citizen", citizenRoutes);   // /api/citizen/complaints/* handled inside here
+app.use("/api/minister", ministerRoutes);
+app.use("/api/agent", agentRoutes);
 
-// Route for handling citizen-related routes
-app.use("/api/citizen", citizenRoutes);
-
-// Route for handling minister-related routes (separate minister route)
-app.use("/api/minister", ministerRoutes); // Register the minister routes here
-
-// Route for handling agent-related routes
-app.use("/api/agent", agentRoutes); // Register the agent routes here
-
-// Connect to the database (MongoDB in this case)
 connectDB();
 
-// Error handling middleware (should be the last middleware)
 app.use(errorHandler);
 
-app.use("/api/citizen/complaints", complaintRoutes);
-
-// Start the server on the specified PORT, fallback to 5000 if not provided
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
