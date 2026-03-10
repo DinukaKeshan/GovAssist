@@ -13,16 +13,14 @@ const MinisterLoginPage = () => {
     e.preventDefault();
     
     try {
-      // Send a POST request to login the minister
       const response = await axios.post('http://localhost:5000/api/minister/login-minister', {
         email,
         password,
       });
 
-      // Save the token to localStorage
       localStorage.setItem('token', response.data.token);
-
-      // Redirect to the Minister Dashboard
+      localStorage.setItem('role', 'minister');
+      window.dispatchEvent(new Event("authChange")); // 👈 add this
       navigate('/minister/dashboard');
     } catch (err) {
       setError('Invalid credentials');

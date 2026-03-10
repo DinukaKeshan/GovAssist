@@ -46,7 +46,7 @@ const MinisterDashboard = () => {
         <div className="mb-6">
           <h3 className="text-xl font-semibold">Minister Details:</h3>
           <p>Email: {ministerData.email}</p>
-          <p>Department: {ministerData.department}</p>
+          <p>Department: {ministerData.department ? ministerData.department.name : "No Department Assigned"}</p>
         </div>
 
         {/* Additional actions like managing complaints or viewing assigned tasks */}

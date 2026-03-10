@@ -1,7 +1,8 @@
-// middlewares/auth.middleware.js
 import jwt from "jsonwebtoken";
 import Citizen from "../models/Citizen.js";
 import Admin from "../models/Admin.js";
+import Minister from "../models/Minister.js";
+import Agent from "../models/Agent.js"; // 👈 add this
 
 const authMiddleware = async (req, res, next) => {
   const token = req.header("Authorization")?.replace("Bearer ", "");
@@ -13,20 +14,17 @@ const authMiddleware = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // Check Admin first, then Citizen
     let user = await Admin.findById(decoded.id);
-    if (user) {
-      req.user = user;
-      req.userRole = "admin";
-      return next();
-    }
+    if (user) { req.user = user; req.userRole = "admin"; return next(); }
 
     user = await Citizen.findById(decoded.id);
-    if (user) {
-      req.user = user;
-      req.userRole = "citizen";
-      return next();
-    }
+    if (user) { req.user = user; req.userRole = "citizen"; return next(); }
+
+    user = await Minister.findById(decoded.id);
+    if (user) { req.user = user; req.userRole = "minister"; return next(); }
+
+    user = await Agent.findById(decoded.id); // 👈 add this
+    if (user) { req.user = user; req.userRole = "agent"; return next(); }
 
     return res.status(404).json({ error: "User not found" });
   } catch (error) {

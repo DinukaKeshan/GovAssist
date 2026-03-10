@@ -15,8 +15,10 @@ const AdminLoginPage = () => {
         email,
         password,
       });
-      localStorage.setItem('token', response.data.token); // Store JWT token
-      navigate('/admin/dashboard'); // Redirect to the admin dashboard
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('role', 'admin');                 // 👈 add this
+      window.dispatchEvent(new Event("authChange"));         // 👈 add this
+      navigate('/admin/dashboard');
     } catch (err) {
       setError('Invalid credentials');
     }

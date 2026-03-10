@@ -63,7 +63,7 @@ export const loginMinister = async (req, res) => {
 // Fetch Minister Profile
 export const getMinisterProfile = async (req, res) => {
   try {
-    const minister = await Minister.findById(req.minister.id).populate('department');
+    const minister = await Minister.findById(req.user.id).populate("department"); // 👈 req.user not req.minister
     if (!minister) {
       return res.status(404).json({ error: "Minister not found" });
     }
