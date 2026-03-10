@@ -1,3 +1,4 @@
+// src/routes/complaint.routes.js
 import express from "express";
 import {
   addComplaint,
@@ -6,6 +7,7 @@ import {
   getComplaintsByCitizen,
   getComplaintsByDepartment,
   voteComplaint,  // Import voteComplaint function
+  suggestDepartment,  // Import suggestDepartment function
 } from "../controllers/complaint.controller.js"; // Import all controllers
 import authMiddleware from "../middlewares/auth.middleware.js";
 
@@ -27,6 +29,9 @@ router.put("/:id", authMiddleware, updateComplaintStatus);
 router.get("/department/:departmentId", getComplaintsByDepartment); // Fetch complaints for a specific department
 
 // Route for voting for a complaint
-router.post("/vote", authMiddleware, voteComplaint); // New route for voting
+router.post("/vote", authMiddleware, voteComplaint); // Route for voting on complaints
+
+// Route for suggesting a department based on the complaint title
+router.post("/suggest-department", authMiddleware, suggestDepartment); // New route for suggesting department
 
 export default router;
