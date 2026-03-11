@@ -75,12 +75,24 @@ export const getMinisterComplaints = async (req, res) => {
 };
 
 // Get agents filtered by department and district
+// controllers/minister.controller.js
+
+// Get agents filtered by minister's department + complaint's district
 export const getAvailableAgents = async (req, res) => {
-  const { department, district } = req.query;
+  const { district } = req.query; // only district comes from frontend
+
   try {
-    const filter = {};
-    if (department) filter.department = department;
-    if (district)   filter.district   = district;
+    // Always use the minister's own department
+    const minister = await Minister.findById(req.user._id);
+    if (!minister?.department) {
+      return res.status(400).json({ error: "Minister has no department assigned" });
+    }
+
+    const filter = {
+      department: minister.department, // 👈 always minister's department
+    };
+
+    if (district) filter.district = district; // 👈 also filter by complaint's district
 
     const agents = await Agent.find(filter).populate("department", "name");
     res.json(agents);
