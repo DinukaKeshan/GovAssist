@@ -22,6 +22,8 @@ import CitizenDepartments from './pages/citizen/CitizenDepartments'; // Import t
 import DepartmentContent from './pages/citizen/DepartmentContent'; // Import the DepartmentContent page
 import CitizenEntries from './pages/citizen/CitizenEntries';  // Import the CitizenEntries page
 import AgentComplaintsPage from './pages/agent/AgentComplaintsPage';
+import MinisterComplaintsPage   from './pages/minister/MinisterComplaintsPage';
+import MinisterDepartmentPage   from './pages/minister/MinisterDepartmentPage';
 
 function App() {
   return (
@@ -57,6 +59,9 @@ function App() {
         {/* Minister Routes */}
         <Route path="/minister/login" element={<MinisterLoginPage />} />  {/* Minister login page */}
         <Route path="/minister/dashboard" element={<MinisterDashboard />} />  {/* Minister dashboard page */}
+        <Route path="/minister/dashboard"   element={<MinisterDashboard />} />
+        <Route path="/minister/complaints"  element={<MinisterComplaintsPage />} />
+        <Route path="/minister/departments" element={<MinisterDepartmentPage />} />
 
         {/* Agent Routes */}
         <Route path="/agent/login" element={<AgentLoginPage />} />  {/* Agent login page */}

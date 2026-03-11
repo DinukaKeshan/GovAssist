@@ -4,8 +4,17 @@ import jwt from "jsonwebtoken";
 import Agent from "../models/Agent.js";
 import Complaint from "../models/Complaint.js";
 
+// controllers/agent.controller.js - registerAgent
 export const registerAgent = async (req, res) => {
-  const { name, email, password, department, district, agentType } = req.body; // 👈 new fields
+  const { name, email, password, department, district, agentType } = req.body;
+
+  // 👇 Validate required fields explicitly
+  if (!district || !agentType) {
+    return res.status(400).json({ 
+      error: "district and agentType are required fields" 
+    });
+  }
+
   try {
     const agentExists = await Agent.findOne({ email });
     if (agentExists) return res.status(400).json({ error: "Agent already exists" });
@@ -16,7 +25,7 @@ export const registerAgent = async (req, res) => {
     const newAgent = new Agent({
       name, email,
       password: hashedPassword,
-      department, district, agentType, // 👈 new fields
+      department, district, agentType,
     });
 
     await newAgent.save();
