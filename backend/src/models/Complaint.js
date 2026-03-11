@@ -3,51 +3,19 @@ import mongoose from "mongoose";
 
 const complaintSchema = new mongoose.Schema(
   {
-    citizen: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Citizen",
-      required: true,
-    },
-    title: { 
-      type: String,
-      required: true,
-      trim: true,
-    },
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    description: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    phoneNumber: {
-      type: String,
-      required: true,
-    },
-    address: {
-      type: String,
-      required: true,
-    },
-    district: {
-      type: String,
-      required: true,
-    },
-    department: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Department",
-      default: null,
-    },
+    citizen:     { type: mongoose.Schema.Types.ObjectId, ref: "Citizen", required: true },
+    title:       { type: String, required: true, trim: true },
+    name:        { type: String, required: true, trim: true },
+    email:       { type: String, required: true, trim: true },
+    description: { type: String, required: true, trim: true },
+    phoneNumber: { type: String, required: true },
+    address:     { type: String, required: true },
+    district:    { type: String, required: true },
+    department:  { type: mongoose.Schema.Types.ObjectId, ref: "Department", default: null },
+    assignedAgent: { type: mongoose.Schema.Types.ObjectId, ref: "Agent", default: null }, // 👈 new
     status: {
       type: String,
-      enum: ["PENDING", "IN_PROGRESS", "RESOLVED"],
+      enum: ["PENDING", "IN_PROGRESS", "RESOLVED", "REJECTED"], // 👈 added REJECTED
       default: "PENDING",
     },
     priority: {
@@ -55,7 +23,7 @@ const complaintSchema = new mongoose.Schema(
       enum: ["HIGH", "MEDIUM", "LOW"],
       default: "MEDIUM",
     },
-    votes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Citizen" }] // Array of citizens who have voted
+    votes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Citizen" }],
   },
   { timestamps: true }
 );

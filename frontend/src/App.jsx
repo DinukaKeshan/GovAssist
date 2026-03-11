@@ -21,6 +21,9 @@ import CreateComplaint from './pages/citizen/CreateComplaint'; // Import Create 
 import CitizenDepartments from './pages/citizen/CitizenDepartments'; // Import the new CitizenDepartments page
 import DepartmentContent from './pages/citizen/DepartmentContent'; // Import the DepartmentContent page
 import CitizenEntries from './pages/citizen/CitizenEntries';  // Import the CitizenEntries page
+import AgentComplaintsPage from './pages/agent/AgentComplaintsPage';
+import MinisterComplaintsPage   from './pages/minister/MinisterComplaintsPage';
+import MinisterDepartmentPage   from './pages/minister/MinisterDepartmentPage';
 
 function App() {
   return (
@@ -42,6 +45,7 @@ function App() {
         
         {/* Admin Home Page */}
         <Route path="/admin/home" element={<AdminHomePage />} />
+        
 
         {/* Citizen Routes */}
         <Route path="/citizen/login" element={<CitizenLoginPage />} />
@@ -55,10 +59,15 @@ function App() {
         {/* Minister Routes */}
         <Route path="/minister/login" element={<MinisterLoginPage />} />  {/* Minister login page */}
         <Route path="/minister/dashboard" element={<MinisterDashboard />} />  {/* Minister dashboard page */}
+        <Route path="/minister/dashboard"   element={<MinisterDashboard />} />
+        <Route path="/minister/complaints"  element={<MinisterComplaintsPage />} />
+        <Route path="/minister/departments" element={<MinisterDepartmentPage />} />
 
         {/* Agent Routes */}
         <Route path="/agent/login" element={<AgentLoginPage />} />  {/* Agent login page */}
         <Route path="/agent/dashboard" element={<AgentDashboard />} />  {/* Agent dashboard page */}
+        <Route path="/agent/complaints" element={<AgentComplaintsPage />} />
+        
       </Routes>
     </div>
   );

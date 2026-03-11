@@ -96,8 +96,9 @@ const Navbar = () => {
 
           {userRole === "minister" && (
             <>
-              <Link to="/minister/dashboard" className="hover:text-gray-200">Dashboard</Link>
-              <Link to="/minister/complaints" className="hover:text-gray-200">Complaints</Link>
+              <Link to="/minister/dashboard"   className="hover:text-gray-200">Dashboard</Link>
+              <Link to="/minister/complaints"  className="hover:text-gray-200">Complaints</Link>
+              <Link to="/minister/departments" className="hover:text-gray-200">Departments</Link>
             </>
           )}
 
@@ -105,6 +106,7 @@ const Navbar = () => {
             <>
               <Link to="/agent/dashboard" className="hover:text-gray-200">Dashboard</Link>
               <Link to="/agent/complaints" className="hover:text-gray-200">Complaints</Link>
+              <Link to="/agent/departments" className="hover:text-gray-200">Departments</Link>  {/* 👈 new */}
             </>
           )}
 
