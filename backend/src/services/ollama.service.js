@@ -1,68 +1,31 @@
-// backend/src/services/ollama.service.js
-import axios from "axios";
-import { buildRagContext } from "../rag/retriever.js"; // ../ goes up from services/ to src/, then into rag/
-
-const OLLAMA_URL = "http://localhost:11434/api/generate";
-const OLLAMA_MODEL = "llama3";
-
-export const getDepartmentSuggestion = async (complaintTitle) => {
-  try {
-    console.log(`[RAG] Retrieving context for: "${complaintTitle}"`);
-    const { context, topDepts } = await buildRagContext(complaintTitle);
-
-    // High confidence — skip LLM entirely
-    if (topDepts[0]?.hybridScore > 0.85) {
-      console.log(`[RAG] High confidence: ${topDepts[0].department} (${topDepts[0].hybridScore.toFixed(3)})`);
-      return { department: topDepts[0].department };
-    }
-
-    // Low confidence — guide LLM with RAG context
-    const prompt = `You are a government complaint routing assistant for Sri Lanka.
-
-Based on the retrieved knowledge below, determine the single best department to handle this complaint.
-
-RETRIEVED KNOWLEDGE:
-${context}
-
-COMPLAINT TITLE: "${complaintTitle}"
-
-Rules:
-- You MUST choose from ONLY these options: ${topDepts.map((d) => `"${d.department}"`).join(", ")}
-- Respond with ONLY the department name — no explanation, no punctuation, nothing else
-
-Department name:`;
-
-    const response = await axios.post(OLLAMA_URL, {
-      model: OLLAMA_MODEL,
+export const askOllama = async (prompt) => {
+  const response = await fetch("http://localhost:11434/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "llama3",
       prompt,
       stream: false,
-    });
+    }),
+  });
 
-    const rawText = response.data?.response?.trim();
-    if (!rawText) return { department: topDepts[0]?.department || null };
+  const data = await response.json();
+  return data.response;
+};
 
-    const llmSuggestion = rawText.replace(/['"\.]/g, "").trim();
-    console.log(`[Ollama] LLM suggested: "${llmSuggestion}"`);
+export const detectDepartment = async (description, departmentNames) => {
+  const prompt = `
+Departments:
+${departmentNames.join(", ")}
 
-    // Validate LLM response against RAG results (prevent hallucination)
-    const llmLower = llmSuggestion.toLowerCase();
-    const validatedMatch = topDepts.find(
-      (d) =>
-        d.department.toLowerCase() === llmLower ||
-        d.department.toLowerCase().includes(llmLower) ||
-        llmLower.includes(d.department.toLowerCase())
-    );
+Rules:
+- Reply ONLY with department name
+- If no match, reply: NONE
 
-    if (validatedMatch) {
-      console.log(`[Ollama] Validated: "${validatedMatch.department}"`);
-      return { department: validatedMatch.department };
-    }
+Complaint:
+"${description}"
+`;
 
-    console.log(`[Ollama] Falling back to RAG top result: "${topDepts[0].department}"`);
-    return { department: topDepts[0].department };
-
-  } catch (error) {
-    console.error("[getDepartmentSuggestion] Error:", error?.response?.data || error.message);
-    throw error;
-  }
+  const result = await askOllama(prompt);
+  return result.trim().toLowerCase();
 };
