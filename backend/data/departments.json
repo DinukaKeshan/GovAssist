@@ -1,0 +1,482 @@
+[
+  {
+    "name": "Transport", 
+
+    "description": "Handles public transport services, road maintenance, traffic control, and vehicle licensing.",
+
+    "responsibilities": [
+      "Maintain roads and bridges",
+      "Manage public bus services",
+      "Control traffic and road safety",
+      "Issue driving licenses and vehicle registrations"
+    ],
+
+    "categories": [
+      "Road Maintenance",
+      "Public Transport",
+      "Traffic Management",
+      "Vehicle Licensing"
+    ],
+
+    "keywords": [
+      "road",
+      "bus",
+      "traffic",
+      "license",
+      "highway",
+      "bridge",
+      "accident"
+    ],
+
+    "synonyms": [
+      "පාථ",
+      "බස්",
+      "රථ වාහන",
+      "traffic jam","paare","paara"
+    ],
+
+    "commonIssues": [
+      "Damaged roads",
+      "Bus delays",
+      "Traffic congestion",
+      "Illegal parking",
+      "Unsafe bridges"
+    ],
+
+    "complaintExamples": [
+      "Road is completely damaged and vehicles cannot pass",
+      "Bus service is not operating on time",
+      "Heavy traffic jam every morning",
+      "Illegal parking blocking the main road",
+      "Broken bridge causing accidents"
+    ],
+
+    "active": true,
+
+    "name": "Environment & Public Nuisance",
+    "keywords": [
+      "noise", "noise pollution",
+      "rathri", "night", "late night",
+      "sleep karanna baha",
+      "party", "festival noise",
+      "factory noise",
+      "construction noise",
+      "burning garbage",
+      "air pollution"
+    ]
+  },
+
+   {
+    "name": "Waste Management",
+    "keywords": [
+      "garbage", "kasala", "waste", "dump",
+      "garbage burn", "burn karanawa",
+      "bad smell", "odor",
+      "garbage truck", "bin", "overflowing bin",
+      "illegal dumping",
+      "waste pit", "sewer smell","kunu"
+    ]
+  },
+  {
+    "name": "Education",
+    "keywords": ["school",
+    "teacher","student","exam", "education","class","lesson","syllabus","principal","attendance","university","college",
+    "results","marks","grades","textbook","classroom","laboratory","library"]
+  },
+
+  {
+
+    "description": "Responsible for hospitals, clinics, sanitation services, and public health safety.",
+
+    "responsibilities": [
+      "Manage government hospitals",
+      "Ensure public sanitation",
+      "Handle health emergencies",
+      "Control disease outbreaks"
+    ],
+
+    "categories": [
+      "Hospitals",
+      "Public Health",
+      "Sanitation",
+      "Emergency Services"
+    ],
+
+    "keywords": [
+      "hospital",
+      "doctor",
+      "medicine",
+      "clinic",
+      "garbage",
+      "disease",
+      "emergency"
+    ],
+
+    "synonyms": [
+      "රෝහල",
+      "doctor",
+      "clinic",
+      "medical"
+    ],
+
+    "commonIssues": [
+      "Medicine shortages",
+      "Hospital overcrowding",
+      "Garbage disposal problems",
+      "Lack of doctors",
+      "Health hazards"
+    ],
+
+    "complaintExamples": [
+      "Hospital emergency ward overcrowded",
+      "Garbage burning causing health issues",
+      "No doctors available in clinic",
+      "Bad smell from waste dump",
+      "Medicine shortage in hospital"
+    ],
+
+    "active": true,
+
+    "keywords": ["hospital", "doctor", "medicine", "clinic", "medicine",
+      "emergency ward", "ward overcrowded",
+      "public toilet", "toilet",
+      "unhygienic", "health risk",
+      "rats", "disease", "infection"]
+  },
+
+  {
+    "name": "Education",
+
+    "description": "Manages schools, universities, teachers, examinations, and student welfare.",
+
+    "responsibilities": [
+      "Manage government schools",
+      "Oversee universities",
+      "Conduct public examinations",
+      "Ensure student safety and welfare"
+    ],
+
+    "categories": [
+      "Schools",
+      "Universities",
+      "Examinations",
+      "Teachers"
+    ],
+
+    "keywords": [
+      "school",
+      "teacher",
+      "exam",
+      "student",
+      "university",
+      "class"
+    ],
+
+    "synonyms": [
+      "පාසල්",
+      "විභාග",
+      "teacher"
+    ],
+
+    "commonIssues": [
+      "Teacher absenteeism",
+      "Exam delays",
+      "Lack of classrooms",
+      "Student safety issues",
+      "University registration problems"
+    ],
+
+    "complaintExamples": [
+      "Teacher not coming to school regularly",
+      "Exam timetable not released",
+      "University registration issues",
+      "No classrooms available",
+      "Student safety problems"
+    ],
+
+    "active": true
+  },
+
+  {
+    "name": "Police",
+
+    "description": "Responsible for maintaining law and order, preventing crime, and ensuring public safety.",
+
+    "responsibilities": [
+      "Maintain public order",
+      "Investigate crimes",
+      "Manage traffic violations",
+      "Respond to emergencies"
+    ],
+
+    "categories": [
+      "Crime Prevention",
+      "Public Safety",
+      "Traffic Law Enforcement",
+      "Emergency Response"
+    ],
+
+    "keywords": [
+      "crime",
+      "theft",
+      "robbery",
+      "assault",
+      "violence",
+      "police",
+      "accident",
+      "complaint"
+    ],
+
+    "synonyms": [
+      "පොලිසිය",
+      "law enforcement",
+      "cop"
+    ],
+
+    "commonIssues": [
+      "Theft incidents",
+      "Domestic violence",
+      "Public disturbances",
+      "Road accidents",
+      "Illegal activities"
+    ],
+
+    "complaintExamples": [
+      "House break-in during night",
+      "Street fight causing injuries",
+      "Illegal drugs sold in the area",
+      "Traffic accident with injuries",
+      "Noise disturbance late night"
+    ],
+
+    "active": true
+  },
+
+  {
+    "name": "Water Supply",
+
+    "description": "Manages clean water distribution, pipelines, and water supply infrastructure.",
+
+    "responsibilities": [
+      "Provide clean drinking water",
+      "Maintain pipelines",
+      "Fix water leaks",
+      "Manage water distribution"
+    ],
+
+    "categories": [
+      "Water Distribution",
+      "Pipeline Maintenance",
+      "Public Utilities"
+    ],
+
+    "keywords": [
+      "water",
+      "pipe",
+      "leak",
+      "supply",
+      "drinking water",
+      "tap"
+    ],
+
+    "synonyms": [
+      "ජල",
+      "water board",
+      "water supply"
+    ],
+
+    "commonIssues": [
+      "Water leakage",
+      "No water supply",
+      "Low water pressure",
+      "Contaminated water",
+      "Broken pipelines"
+    ],
+
+    "complaintExamples": [
+      "No water supply for three days",
+      "Water pipe leaking on the road",
+      "Dirty water coming from taps",
+      "Low water pressure in houses",
+      "Broken pipeline near school"
+    ],
+
+    "active": true
+  },
+
+  {
+    "name": "Health",
+
+    "description": "Responsible for hospitals, clinics, sanitation and public health",
+
+    "categories": [
+      "Hospitals",
+      "Public Health",
+      "Sanitation",
+      "Emergency Services"
+    ],
+
+    "keywords": [
+      "hospital",
+      "doctor",
+      "medicine",
+      "clinic",
+      "garbage",
+      "disease",
+      "emergency"
+    ],
+
+    "synonyms": [
+      "රෝහල",
+      "doctor",
+      "clinic",
+      "medical",
+
+      "rohale",
+      "hospital eka",
+      "doctor kenek naha",
+      "garbage burn karanawa",
+      "bad smell"
+    ],
+
+    "complaintExamples": [
+      "Hospital eke emergency ward eka loku crowd",
+      "Garbage burn karala health problem hadenawa",
+      "Clinic eke doctor kenek inne naha",
+      "Geda issaraha kasala dump karanawa",
+      "Medicine naha hospital eke"
+    ],
+
+    "active": true
+  },
+
+  {
+    "name": "Education",
+
+    "description": "Manages schools, universities, teachers and exams",
+
+    "categories": [
+      "Schools",
+      "Universities",
+      "Examinations",
+      "Teachers"
+    ],
+
+    "keywords": [
+      "school",
+      "teacher",
+      "exam",
+      "student",
+      "university",
+      "class"
+    ],
+
+    "synonyms": [
+      "පාසල්",
+      "විභාග",
+      "teacher",
+
+      "pasala",
+      "school eka",
+      "teacher kenek enne naha",
+      "exam timetable naha",
+      "class ekak naha"
+    ],
+
+    "complaintExamples": [
+      "Teacher kenek school eka enne naha",
+      "Exam timetable eka release wela naha",
+      "University registration problem thiyenawa",
+      "Class room hariyata naha",
+      "Students la safety problem thiyenawa"
+    ],
+
+    "active": true
+  },
+
+  {
+    "name": "Electricity & Power",
+
+    "description": "Responsible for electricity generation, distribution and maintenance",
+
+    "categories": [
+      "Power Distribution",
+      "Maintenance",
+      "Billing"
+    ],
+
+    "keywords": [
+      "electricity",
+      "power",
+      "current",
+      "meter",
+      "transformer"
+    ],
+
+    "synonyms": [
+      "විදුලි",
+      "current",
+      "power cut",
+
+      "current naha",
+      "light naha",
+      "power eka giya",
+      "meter eka wada naha",
+      "transformer eka explode wela"
+    ],
+
+    "complaintExamples": [
+      "Geda current naha raathri wela",
+      "Power cut eka loku wela",
+      "Transformer eka explode wela",
+      "Electricity bill eka wrong",
+      "Meter eka wada karanne naha"
+    ],
+
+    "active": true
+  },
+
+  {
+    "name": "Water Supply",
+
+    "description": "Manages clean water supply and pipelines",
+
+    "categories": [
+      "Water Distribution",
+      "Pipeline Maintenance"
+    ],
+
+    "keywords": [
+      "water",
+      "pipe",
+      "leak",
+      "supply",
+      "tap"
+    ],
+
+    "synonyms": [
+      "ජල",
+      "water board",
+
+      "watura naha",
+      "pipe eka leak wenawa",
+      "tap eke watura enne naha",
+      "dirty water"
+    ],
+
+    "complaintExamples": [
+      "Geda watura enne naha",
+      "Pipe eka leak wela paara watura",
+      "Tap eka dirty watura enne",
+      "Low pressure nisa watura adui",
+      "Water supply eka cut wela"
+    ],
+
+    "active": true
+  }
+
+]
+
+
+
+
