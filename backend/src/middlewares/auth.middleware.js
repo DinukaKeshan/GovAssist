@@ -1,36 +1,31 @@
 import jwt from "jsonwebtoken";
-import Citizen from "../models/Citizen.js";
-import Admin from "../models/Admin.js";
-import Minister from "../models/Minister.js";
-import Agent from "../models/Agent.js"; // 👈 add this
+import User from "../models/User.js";
 
-const authMiddleware = async (req, res, next) => {
-  const token = req.header("Authorization")?.replace("Bearer ", "");
+export const protect = async (req, res, next) => {
+  const authHeader = req.headers.authorization;
 
-  if (!token) {
-    return res.status(401).json({ error: "No token, authorization denied" });
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ message: "No token provided" });
   }
+
+  const token = authHeader.split(" ")[1];
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    let user = await Admin.findById(decoded.id);
-    if (user) { req.user = user; req.userRole = "admin"; return next(); }
+    // 🔥 Fetch full user from DB
+    const user = await User.findById(decoded.id).select("-password");
 
-    user = await Citizen.findById(decoded.id);
-    if (user) { req.user = user; req.userRole = "citizen"; return next(); }
+    if (!user) {
+      return res.status(401).json({ message: "User not found" });
+    }
 
-    user = await Minister.findById(decoded.id);
-    if (user) { req.user = user; req.userRole = "minister"; return next(); }
+    // Attach full user object
+    req.user = user;
 
-    user = await Agent.findById(decoded.id); // 👈 add this
-    if (user) { req.user = user; req.userRole = "agent"; return next(); }
-
-    return res.status(404).json({ error: "User not found" });
-  } catch (error) {
-    console.error("JWT Error:", error.message);
-    res.status(400).json({ error: "Token is not valid" });
+    next();
+  } catch (err) {
+    console.error("Auth error:", err.message);
+    return res.status(401).json({ message: "Invalid token" });
   }
 };
-
-export default authMiddleware;

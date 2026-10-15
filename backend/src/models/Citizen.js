@@ -1,12 +1,14 @@
-// models/Citizen.js
 import mongoose from "mongoose";
 
 const citizenSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
     complaints: [{ type: mongoose.Schema.Types.ObjectId, ref: "Complaint" }],
+    votes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Complaint" }],
   },
   { timestamps: true }
 );

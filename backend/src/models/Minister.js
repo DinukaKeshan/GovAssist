@@ -2,11 +2,15 @@ import mongoose from "mongoose";
 
 const ministerSchema = new mongoose.Schema(
   {
-    name:       { type: String, required: true },
-    email:      { type: String, required: true, unique: true },
-    password:   { type: String, required: true }, // 👈 This was missing
-    department: { type: mongoose.Schema.Types.ObjectId, ref: "Department" },
-    complaints: [{ type: mongoose.Schema.Types.ObjectId, ref: "Complaint" }],
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    department: { type: String, required: true },
+    monitoredComplaints: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Complaint" },
+    ],
   },
   { timestamps: true }
 );
