@@ -1,0 +1,193 @@
+text,priority
+"Road is completely broken",HIGH
+"Street light not working",MEDIUM
+"Garbage is not collected from our street for several days",MEDIUM
+"Garbage collection delayed",MEDIUM
+"Hospital emergency ward overcrowded",HIGH
+"Residential area eke garbage burn karanawa",MEDIUM
+"Gedara issaraha kasala dump karanawa, bad smell ena widihak",MEDIUM
+"Rathri 10 passe loku noise, sleep karanna baha",HIGH
+"Canal eka block wela water overflow wenawa",HIGH
+"Electric wire laga gasak loku risk ekak",HIGH
+"Illegal parking nisa access road eka close",MEDIUM
+"Hospital emergency ward overcrowded",HIGH
+"Street light not working",MEDIUM
+"Road is completely broken",HIGH
+"Rathri 10 passe loku noise, sleep karanna baha",HIGH
+"Geda issaraha kasala dump karanawa, bad smell ena widihak",LOW
+"Unauthorized wall ekak hadala public land block wela",HIGH
+"Canal eka block wela water overflow wenawa",MEDIUM
+"Illegal parking nisa access road eka close",MEDIUM
+"paara mada loku valak",High
+"Rathri 10 passe loku noise, sleep karanna baha",LOW
+"Illegal parking nisa access road eka close",LOW
+"Unauthorized wall ekak hadala public land block wela",LOW
+"Residential area eke garbage burn karanawa",HIGH
+"Rathri 10 passe loku noise, sleep karanna baha",LOW
+"Geda issaraha kasala dump karanawa, bad smell ena widihak",MEDIUM
+"Canal eka block wela water overflow wenawa",MEDIUM
+"Residential area eke garbage burn karanawa",HIGH
+"Electric wire laga gasak loku risk ekak",MEDIUM
+"Rathri 10 passe loku noise, sleep karanna baha",HIGH
+"Canal eka block wela water overflow wenawa",LOW
+"Rathri 10 passe loku noise, sleep karanna baha",HIGH
+"Illegal parking nisa access road eka close",MEDIUM
+"Residential area eke garbage burn karanawa",HIGH
+"Rathri 10 passe loku noise, sleep karanna baha",LOW
+"Canal eka block wela water overflow wenawa",HIGH
+"Rathri 10 passe loku noise, sleep karanna baha",LOW
+"Unauthorized wall ekak hadala public land block wela",LOW
+"Geda issaraha kasala dump karanawa, bad smell ena widihak",MEDIUM
+"Rathri 10 passe loku noise, sleep karanna baha",MEDIUM
+"Illegal parking nisa access road eka close",LOW
+text,priority
+"Road is full of potholes, difficult to drive",HIGH
+"Street light not functioning properly",MEDIUM
+"Garbage not collected from the street",LOW
+"Hospital emergency ward is overcrowded",HIGH
+"Unauthorized construction blocking sidewalk",HIGH
+"Illegal dumping of waste in public area",MEDIUM
+"Electric wires hanging dangerously",HIGH
+"Tree branches blocking the road",MEDIUM
+"Water supply pipe burst causing flooding",HIGH
+"Canal water overflowing into streets",MEDIUM
+"Noise disturbance at night",MEDIUM
+"Traffic signals not working at intersection",HIGH
+"Street cleaning not done for a week",LOW
+"Garbage trucks delayed by two days",LOW
+"Overflowing public bins in residential area",MEDIUM
+"Illegal parking blocking main road",HIGH
+"Unauthorized wall constructed on public land",HIGH
+"Drainage system clogged, water stagnant",HIGH
+"Broken street lamp causing safety risk",MEDIUM
+"Fallen tree branches on pedestrian path",MEDIUM
+"Noise pollution due to construction at night",HIGH
+"Public toilet unhygienic, needs cleaning",LOW
+"Damaged footpath causing accidents",MEDIUM
+"Electric pole leaning dangerously",HIGH
+"Street lights flickering in the evening",MEDIUM
+"Blocked canal causing water backup",HIGH
+"Overflowing waste pit near school",MEDIUM
+"Unauthorized billboard blocking view",LOW
+"Public garden neglected, plants dried",LOW
+"Noise from late-night parties disturbing",MEDIUM
+"Street signage missing causing confusion",LOW
+"Road drainage blocked after rain",HIGH
+"Overflowing sewer in residential area",HIGH
+"Garbage scattered by stray dogs",MEDIUM
+"Children playing in unsafe construction site",HIGH
+"Street cleaning schedule not followed",LOW
+"Electric transformer sparks dangerously",HIGH
+"Blocked pedestrian walkway due to vendor stalls",MEDIUM
+"Illegal construction near playground",HIGH
+"Water leakage from broken pipeline",HIGH
+"Traffic signal timing issues causing jams",MEDIUM
+"Street lamp not switched on at night",MEDIUM
+"Overflowing waste bin near market",LOW
+"Unauthorized advertisement boards on main road",LOW
+"Noise from nearby factory at night",MEDIUM
+"Fallen tree blocking emergency exit road",HIGH
+"Street not cleaned after festival",LOW
+"Cracks on main road causing vehicle damage",MEDIUM
+"Drainage water overflowing on footpath",HIGH
+"Illegal parking blocking fire hydrant",HIGH
+"Children exposed to unsafe electrical wires",HIGH
+"Garbage truck missed street pickup",MEDIUM
+"Overgrown trees blocking street light",MEDIUM
+"Noise disturbance from construction machinery",HIGH
+"Unauthorized construction near public park",HIGH
+"Leaking water pipe near school entrance",MEDIUM
+"Street lights not illuminating alley",MEDIUM
+"Overflowing drain near hospital",HIGH
+"Noise from illegal nightclub disturbing residents",HIGH
+"Garbage pile attracting rats",MEDIUM
+"Electric pole damaged after storm",HIGH
+"Blocked drainage causing water logging",HIGH
+"Unauthorized hoarding signs on main road",LOW
+"Children playing near dangerous construction site",HIGH
+"Street not swept for several days",LOW
+"Fallen electric wire on road",HIGH
+"Noise from traffic during early morning",MEDIUM
+"Overflowing public toilet near bus stop",LOW
+"Unauthorized shop extension blocking road",MEDIUM
+"Street water puddle causing accidents",HIGH
+"Garbage scattered along riverbank",MEDIUM
+"Noise from nearby factory during night",HIGH
+"Damaged pavement causing slips",MEDIUM
+"Electric meter box exposed to rain",HIGH
+"Overflowing drainage near school",HIGH
+"Unauthorized advertisement banners on road",LOW
+"Noise from street vendors late at night",MEDIUM
+"Fallen tree near bus stop blocking path",HIGH
+"Street lamps not maintained properly",MEDIUM
+"Garbage accumulation near residential area",LOW
+"Overflowing sewer causing bad odor",HIGH
+"Unauthorized construction affecting drainage",HIGH
+"Noise from construction vehicles at night",HIGH
+"Blocked pedestrian walkway near market",MEDIUM
+"Fallen electric pole near street corner",HIGH
+"Street lights not working in lane",MEDIUM
+"Garbage dumped near playground",LOW
+"Noise pollution from festival celebrations",MEDIUM
+"Cracks on main bridge causing hazards",HIGH
+"Overflowing drain near hospital entrance",HIGH
+"Electric wires are hanging dangerously near the road",HIGH
+"Electric pole is damaged and may fall",HIGH
+"Street lights are not working at night",MEDIUM
+"Power supply is interrupted frequently in our area",MEDIUM
+"Electric transformer is making sparks",HIGH
+"Broken electric wire on the road causing danger",HIGH
+"Electric meter box is exposed and unsafe",MEDIUM
+"Street lights are flickering continuously",LOW
+"Electric pole leaning dangerously after heavy rain",HIGH
+"Power outage for many hours without notice",LOW
+"Rathri wela loku noise nisa sleep karanna baha",HIGH
+"Late night party noise disturbing residents",HIGH
+"Factory noise throughout the night causing discomfort",HIGH
+"Construction noise early morning and night time",MEDIUM
+"Residential area eke garbage burning karanawa",HIGH
+"Burning garbage causing bad smell and air pollution",HIGH
+"Festival noise late night disturbing elders and children",MEDIUM
+"Night time loud music from nearby shop",MEDIUM
+"Noise pollution from vehicles during night",LOW
+"People are using loudspeakers late at night",MEDIUM
+"Factory releasing smoke and causing air pollution",HIGH
+"Garbage burning near houses creating health risk",HIGH
+"Rathri 10 passe loku sound system use karanawa",HIGH
+"Construction work going on during night time",MEDIUM
+"Air pollution due to continuous garbage burning",HIGH
+"Noise from nearby wedding hall late at night",MEDIUM
+"Night club noise disturbing residential area",HIGH
+"Heavy noise from festival celebrations at night",MEDIUM
+"Loud generator noise during night time",LOW
+"People burning plastic waste in open area",HIGH
+"Main road is cracked and unsafe for vehicles",HIGH
+"Street light near bus stop is not working",MEDIUM
+"Garbage collection vehicle skipped our street",MEDIUM
+"Blocked drainage causing mosquito breeding",MEDIUM
+"Electric cable hanging dangerously close to houses",HIGH
+"Illegal parking blocking ambulance access",HIGH
+"Canal overflow flooding nearby houses",HIGH
+"Construction noise continuing after midnight",HIGH
+"Open garbage dumping creating bad odor",MEDIUM
+"Street cleaning not done after heavy rain",LOW
+"Electric pole damaged due to accident",HIGH
+"Frequent power cuts affecting daily activities",MEDIUM
+"Public waste bin overflowing near market",MEDIUM
+"Unauthorized construction blocking public pathway",HIGH
+"Traffic signal not functioning during peak hours",HIGH
+"Broken street light causing safety issues",MEDIUM
+"Factory emitting smoke causing air pollution",HIGH
+"Garbage dumped near river polluting water",MEDIUM
+"Stagnant water in drain causing health risk",MEDIUM
+"Loud music from party disturbing sleep",HIGH
+"Road potholes filled with water after rain",HIGH
+"Burning plastic waste causing toxic smoke",HIGH
+"Street lamp turning on and off frequently",MEDIUM
+"Illegal parking near hospital entrance",HIGH
+"Sewer overflow spreading bad smell",HIGH
+"Construction materials blocking footpath",MEDIUM
+"Electric transformer overheating and sparking",HIGH
+"Noise from generators during night time",MEDIUM
+"Water leakage from underground pipe",HIGH
+"Public park not maintained and full of waste",MEDIUM
