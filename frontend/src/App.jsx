@@ -1,76 +1,88 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AdminLoginPage from './pages/admin/AdminLoginPage';
-import AdminRegisterPage from './pages/admin/AdminRegisterPage';
-import AdminDashboard from './pages/admin/AdminDashboard'; 
-import CreateDepartmentPage from './pages/admin/CreateDepartmentPage'; 
-import UserManagementPage from './pages/admin/UserManagementPage'; // Import User Management page
-import CreateMinisterPage from './pages/admin/CreateMinisterPage'; // Import Create Minister page
-import CreateAgentPage from './pages/admin/CreateAgentPage'; // Import Create Agent page
-import HomePage from './pages/citizen/HomePage';  
-import CitizenLoginPage from './pages/citizen/CitizenLoginPage';  
-import CitizenRegisterPage from './pages/citizen/CitizenRegisterPage';  
-import CitizenDashboard from './pages/citizen/CitizenDashboard';  
-import MinisterLoginPage from './pages/minister/MinisterLoginPage';  // Import Minister Login page
-import MinisterDashboard from './pages/minister/MinisterDashboard';  // Import Minister Dashboard page
-import AgentLoginPage from './pages/agent/AgentLoginPage';  // Import Agent Login page
-import AgentDashboard from './pages/agent/AgentDashboard';  // Import Agent Dashboard page
-import Navbar from './components/Navbar'; 
-import AdminHomePage from './pages/admin/AdminHomePage';  // Import Admin Home page
-import CreateComplaint from './pages/citizen/CreateComplaint'; // Import Create Complaint page
-import CitizenDepartments from './pages/citizen/CitizenDepartments'; // Import the new CitizenDepartments page
-import DepartmentContent from './pages/citizen/DepartmentContent'; // Import the DepartmentContent page
-import CitizenEntries from './pages/citizen/CitizenEntries';  // Import the CitizenEntries page
-import AgentComplaintsPage from './pages/agent/AgentComplaintsPage';
-import MinisterComplaintsPage   from './pages/minister/MinisterComplaintsPage';
-import MinisterDepartmentPage   from './pages/minister/MinisterDepartmentPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar /> {/* Navbar component */}
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import OAuthSuccess from "./pages/OAuthSuccess";
+import GoogleSelectRole from "./pages/GoogleSelectRole";
 
-      <Routes>
-        {/* Home page route */}
-        <Route path="/" element={<HomePage />} />
+import MinisterDashboard from "./pages/minister/MinisterDashboard";
+import MinisterDepartmentPage from "./pages/minister/MinisterDepartmentPage";
 
-        {/* Admin Routes */}
-        <Route path="/admin/login" element={<AdminLoginPage />} />
-        <Route path="/admin/register" element={<AdminRegisterPage />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/create-department" element={<CreateDepartmentPage />} />
-        <Route path="/admin/user-management" element={<UserManagementPage />} /> {/* User Management page */}
-        <Route path="/admin/create-minister" element={<CreateMinisterPage />} /> {/* Create Minister page */}
-        <Route path="/admin/create-agent" element={<CreateAgentPage />} /> {/* Create Agent page */}
-        
-        {/* Admin Home Page */}
-        <Route path="/admin/home" element={<AdminHomePage />} />
-        
+import NewComplaint from "./pages/complaints/NewComplaint";
+import Departments from "./pages/departments/Departments";
+import DepartmentPage from "./pages/departments/DepartmentPage";
 
-        {/* Citizen Routes */}
-        <Route path="/citizen/login" element={<CitizenLoginPage />} />
-        <Route path="/citizen/register" element={<CitizenRegisterPage />} />
-        <Route path="/citizen/dashboard" element={<CitizenDashboard />} />
-        <Route path="/citizen/create-complaint" element={<CreateComplaint />} /> {/* Add this route */}
-        <Route path="/citizen/departments" element={<CitizenDepartments />} /> {/* Route for CitizenDepartments page */}
-        <Route path="/citizen/departments/:departmentId" element={<DepartmentContent />} /> {/* Route for Department Content */}
-        <Route path="/citizen/entries" element={<CitizenEntries />} /> {/* Route for Citizen Entries Page */}
+// Optional (recommended) protected route
+function ProtectedRoute({ children, role }) {
+  const user = JSON.parse(localStorage.getItem("user"));
 
-        {/* Minister Routes */}
-        <Route path="/minister/login" element={<MinisterLoginPage />} />  {/* Minister login page */}
-        <Route path="/minister/dashboard" element={<MinisterDashboard />} />  {/* Minister dashboard page */}
-        <Route path="/minister/dashboard"   element={<MinisterDashboard />} />
-        <Route path="/minister/complaints"  element={<MinisterComplaintsPage />} />
-        <Route path="/minister/departments" element={<MinisterDepartmentPage />} />
+  if (!user) {
+    return <Home />;
+  }
 
-        {/* Agent Routes */}
-        <Route path="/agent/login" element={<AgentLoginPage />} />  {/* Agent login page */}
-        <Route path="/agent/dashboard" element={<AgentDashboard />} />  {/* Agent dashboard page */}
-        <Route path="/agent/complaints" element={<AgentComplaintsPage />} />
-        
-      </Routes>
-    </div>
-  );
+  if (role && user.role !== role) {
+    return <Home />;
+  }
+
+  return children;
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* PUBLIC */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/oauth-success" element={<OAuthSuccess />} />
+        <Route path="/google-select-role" element={<GoogleSelectRole />} />
+
+        {/* CITIZEN */}
+        <Route
+          path="/departments"
+          element={
+            <ProtectedRoute role="CITIZEN">
+              <Departments />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/departments/:id"
+          element={
+            <ProtectedRoute role="CITIZEN">
+              <DepartmentPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/complaints/new"
+          element={
+            <ProtectedRoute role="CITIZEN">
+              <NewComplaint />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* MINISTER */}
+        <Route
+          path="/minister/dashboard"
+          element={
+            <ProtectedRoute role="MINISTER">
+              <MinisterDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/minister/departments/:id"
+          element={
+            <ProtectedRoute role="MINISTER">
+              <MinisterDepartmentPage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}
